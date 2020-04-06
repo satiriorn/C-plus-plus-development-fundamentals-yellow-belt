@@ -93,7 +93,49 @@ public:
 private:
 	int fail_count = 0;
 };
+/*
+int GreatestCommonDivisor(int a, int b) {
+	return (b == 0) ? a : GreatestCommonDivisor(b, a % b);
+}
 
+class Rational {
+public:
+	Rational() { 
+		num = 0;
+		den = 1;
+	}
+	Rational(int new_numerator, int new_denominator) {
+		const int gcd = GreatestCommonDivisor(new_numerator, new_denominator);
+		num = new_numerator / gcd;
+		den = new_denominator / gcd;
+		if (den < 0) {
+			den = -den;
+			num = -num;
+		}
+	}
+
+	int Numerator() const {return num;}
+
+	int Denominator() const {return den;}
+
+private:
+	int num, den;
+};
+Rational operator / (Rational a, Rational b) {
+	if (b.Numerator() == 0) throw domain_error("domain_error");
+	return Rational((a.Numerator() * b.Denominator()), (a.Denominator() * b.Numerator()));
+}
+istream& operator >> (istream& stream, Rational& r) {
+	int p, q;
+	if (stream >> p && stream.ignore(1) && stream >> q) 
+		r = { p, q };
+	return stream;
+}
+ostream& operator << (ostream& stream, const Rational& r) {
+	stream << r.Numerator() << "/" << r.Denominator();
+	return stream;
+}
+*/
 void AboveZero() {
 	AssertEqual(Rational(1, 1).Numerator(), 1);
 	AssertEqual(Rational(1, 1).Denominator(), 1);
